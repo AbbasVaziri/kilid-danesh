@@ -6,7 +6,7 @@ import { toFa } from "@/lib/site";
 
 export default function BlogCards({ posts }: { posts: Post[] }) {
   return (
-    <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className={`grid gap-6 sm:grid-cols-2 ${posts.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
       {posts.map((p) => (
         <li key={p.slug}>
           <Link href={`/blog/${p.slug}`} className="group block">

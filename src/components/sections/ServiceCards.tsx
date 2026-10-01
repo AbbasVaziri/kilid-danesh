@@ -11,26 +11,28 @@ export default function ServiceCards({ cards }: { cards: ServiceCard[] }) {
         <li key={c.title}>
           <Link
             href={c.href}
-            className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_1px_0_rgba(0,0,0,0.04),0_12px_40px_-20px_rgba(0,0,0,0.25)] ring-1 ring-black/5 transition-shadow hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"
+            className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-sm bg-graphite"
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-graphite">
-              <Image
-                src={c.image}
-                alt={c.title}
-                fill
-                sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute start-5 -bottom-6 grid size-14 place-items-center rounded-lg bg-brand text-ink shadow-lg">
-                <ServiceIcon name={c.icon} className="size-7" />
+            <Image
+              src={c.image}
+              alt={c.title}
+              fill
+              sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"
+              aria-hidden
+            />
+            <div className="relative p-6">
+              <span className="mb-4 grid size-11 place-items-center rounded-sm bg-brand text-ink">
+                <ServiceIcon name={c.icon} className="size-5" />
               </span>
-            </div>
-            <div className="flex flex-1 flex-col p-6 pt-10">
-              <h3 className="text-xl font-black">{c.title}</h3>
-              <p className="mt-3 flex-1 leading-7 text-muted">{c.description}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-ink group-hover:text-brand-dark">
-                اطلاعات بیشتر
-                <ArrowLeft className="size-4" aria-hidden />
+              <h3 className="text-2xl font-black text-white">{c.title}</h3>
+              <p className="mt-2 text-sm leading-7 text-white/75">{c.description}</p>
+              <span className="mt-5 inline-grid size-10 place-items-center bg-brand text-ink transition-colors group-hover:bg-white">
+                <ArrowLeft className="size-5" aria-hidden />
+                <span className="sr-only">اطلاعات بیشتر</span>
               </span>
             </div>
           </Link>

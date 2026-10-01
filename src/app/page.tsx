@@ -2,9 +2,12 @@ import Link from "next/link";
 import Hero from "@/components/sections/Hero";
 import ServiceCards from "@/components/sections/ServiceCards";
 import HowItWorks from "@/components/sections/HowItWorks";
-import Trust from "@/components/sections/Trust";
-import EmergencyCta from "@/components/sections/EmergencyCta";
-import LocationCards from "@/components/sections/LocationCards";
+import TrustedGrid from "@/components/sections/TrustedGrid";
+import EmergencyServices from "@/components/sections/EmergencyServices";
+import AlwaysAvailable from "@/components/sections/AlwaysAvailable";
+import AreasSection from "@/components/sections/AreasSection";
+import StatsBand from "@/components/sections/StatsBand";
+import CtaPhoto from "@/components/sections/CtaPhoto";
 import BlogCards from "@/components/sections/BlogCards";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FaqList from "@/components/ui/FaqList";
@@ -14,7 +17,6 @@ import { homeFaqs } from "@/lib/faqs";
 import { locations } from "@/lib/locations";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { serviceCards } from "@/lib/services";
-import { site } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "کلیدسازی فوری تهران | کلیدسازی دانش",
@@ -64,24 +66,23 @@ export default function HomePage() {
       </section>
 
       <HowItWorks />
-      <Trust />
-      <div className="h-8 bg-paper" aria-hidden />
-      <EmergencyCta />
+      <TrustedGrid />
+      <EmergencyServices />
+      <AlwaysAvailable />
+      <AreasSection />
+      <StatsBand />
 
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <SectionHeading
-            eyebrow="کلیدساز محلی"
-            title="مناطق تحت پوشش کلیدسازی دانش"
-            highlight="کلیدسازی دانش"
-            description={`${site.name} در محله‌های غرب و مرکز تهران با اعزام سریع در خدمت شماست. منطقه خود را انتخاب کنید.`}
-          />
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <SectionHeading eyebrow="مجله کلیدسازی" title="مقالات و راهنماها" highlight="راهنماها" />
+            <MoreLink href="/blog">همه مقالات</MoreLink>
+          </div>
           <div className="mt-12">
-            <LocationCards items={locations} />
+            <BlogCards posts={posts.slice(0, 3)} />
           </div>
         </div>
       </section>
-
       <section className="bg-paper py-20 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1fr_1.4fr]">
           <SectionHeading
@@ -94,17 +95,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="مجله کلیدسازی" title="مقالات و راهنماها" highlight="راهنماها" />
-            <MoreLink href="/blog">همه مقالات</MoreLink>
-          </div>
-          <div className="mt-12">
-            <BlogCards posts={posts} />
-          </div>
-        </div>
-      </section>
+      <CtaPhoto />
     </>
   );
 }
