@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { blurProps } from "@/lib/image-blur";
 import Breadcrumbs from "./Breadcrumbs";
 import CallButton from "./CallButton";
 import type { Crumb } from "@/lib/seo";
@@ -18,7 +19,8 @@ export default function PageHero({ title, description, image, crumbs, eyebrow }:
         src={image}
         alt=""
         fill
-        priority
+        preload
+        {...blurProps(image)}
         sizes="100vw"
         className="-z-10 object-cover opacity-40"
       />

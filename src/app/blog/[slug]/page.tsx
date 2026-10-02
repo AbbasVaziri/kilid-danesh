@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { blurProps } from "@/lib/image-blur";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import CallButton from "@/components/ui/CallButton";
 import JsonLd from "@/components/ui/JsonLd";
@@ -58,7 +59,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
       </section>
       <article className="mx-auto max-w-3xl px-4 py-12">
         <div className="relative -mt-4 aspect-[16/9] overflow-hidden rounded-xl bg-graphite">
-          <Image src={p.image} alt={p.title} fill priority sizes="(min-width: 768px) 720px, 100vw" className="object-cover" />
+          <Image src={p.image} alt={p.title} fill loading="eager" {...blurProps(p.image)} sizes="(min-width: 768px) 720px, 100vw" className="object-cover" />
         </div>
         <div className="mt-10 space-y-5 text-lg leading-9 text-ink/85">
           {p.content.map((b, i) => {

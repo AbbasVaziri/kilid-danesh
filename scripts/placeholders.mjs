@@ -1,5 +1,6 @@
 // Generates dark/yellow placeholder photos in public/images.
-// Replace any file with a real photo of the same name; no code changes needed.
+// Existing files are kept (real photos are never overwritten); pass --force to
+// regenerate every placeholder.
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
@@ -30,7 +31,10 @@ const images = [
   ["blog-price", L.Receipt, 1200, 900],
 ];
 
+const force = process.argv.includes("--force");
+
 for (const [name, Icon, w, h, cx = 0.5] of images) {
+  if (!force && fs.existsSync(path.join(out, `${name}.jpg`))) continue;
   const s = Math.round(Math.min(w, h) * 0.5);
   const icon = renderToStaticMarkup(
     React.createElement(Icon, { size: s, color: "#f5c400", strokeWidth: 0.9 })

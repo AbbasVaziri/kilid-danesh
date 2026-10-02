@@ -23,16 +23,22 @@ npm run build && npm start   # production
 
 ## Photos
 
-`public/images/*.jpg` are generated placeholders (`node scripts/placeholders.mjs`; running it again overwrites real photos). Replace each with a real photo of the same name:
+Source photos live in `assets/photos/`. `node scripts/optimize-images.mjs` crops, resizes and compresses them into `public/images/` and regenerates the blur previews in `src/lib/image-blur.ts`. At runtime, `next/image` serves AVIF/WebP at the right width for each screen.
 
-| File | Content | Shape |
+To add or replace a photo: put the file in `assets/photos/`, add or edit its line in `scripts/optimize-images.mjs`, then run the script.
+
+| File | Content | Now |
 | --- | --- | --- |
-| hero.jpg | Locksmith at a house door, person on the left | wide |
-| door-opening.jpg, anti-theft.jpg, smart-lock.jpg, key-copy.jpg, cylinder.jpg, emergency.jpg | Service cards | any (cropped 4:5) |
-| process-bg.jpg | Dark texture / padlock (background of "how we work") | wide |
-| key-hand.jpg | Hand holding a key | any |
-| trust.jpg | Hands working on a lock (24/7 section) | landscape |
-| portrait.jpg | Smiling locksmith | tall 3:4 |
-| cta-bg.jpg | Locksmith at work (bottom call section) | wide |
-| location.jpg | Location page header | wide |
-| blog-keys-inside.jpg, blog-anti-theft.jpg, blog-smart-lock.jpg, blog-price.jpg | Blog articles | 4:3 |
+| hero.jpg | Locksmith at a door (mirrored so he is on the left) | photo |
+| door-opening.jpg | Service card | photo |
+| key-copy.jpg | Service card | photo |
+| process-bg.jpg | Background of "how we work" | photo |
+| trust.jpg | 24/7 section | photo |
+| cta-bg.jpg, location.jpg | Bottom call section, location page header | photo |
+| key-hand.jpg | Emergency services section | photo |
+| blog-keys-inside.jpg, blog-anti-theft.jpg, blog-price.jpg | Blog articles | photo |
+| anti-theft.jpg, smart-lock.jpg, cylinder.jpg, emergency.jpg | Service cards | placeholder |
+| portrait.jpg | Smiling locksmith, tall 3:4 | placeholder |
+| blog-smart-lock.jpg | Blog article | placeholder |
+
+Placeholders come from `node scripts/placeholders.mjs`, which never overwrites existing files unless you pass `--force`.

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { blurProps } from "@/lib/image-blur";
 import { BadgeCheck } from "lucide-react";
 import CallButton from "@/components/ui/CallButton";
 
@@ -12,9 +13,10 @@ export default function Hero() {
         src="/images/hero.jpg"
         alt="کلیدساز متخصص در حال باز کردن قفل درب منزل"
         fill
-        priority
+        preload
+        {...blurProps("/images/hero.jpg")}
         sizes="100vw"
-        className="-z-10 object-cover object-left"
+        className="-z-10 object-cover object-[60%_30%] lg:object-[0%_22%]"
       />
       <div
         className="absolute inset-0 -z-10 bg-gradient-to-l from-ink via-ink/85 to-ink/25"
