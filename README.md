@@ -27,18 +27,17 @@ Source photos live in `assets/photos/`. `node scripts/optimize-images.mjs` crops
 
 To add or replace a photo: put the file in `assets/photos/`, add or edit its line in `scripts/optimize-images.mjs`, then run the script.
 
-| File | Content | Now |
-| --- | --- | --- |
-| hero.jpg | Locksmith at a door (mirrored so he is on the left) | photo |
-| door-opening.jpg | Service card | photo |
-| key-copy.jpg | Service card | photo |
-| process-bg.jpg | Background of "how we work" | photo |
-| trust.jpg | 24/7 section | photo |
-| cta-bg.jpg, location.jpg | Bottom call section, location page header | photo |
-| key-hand.jpg | Emergency services section | photo |
-| blog-keys-inside.jpg, blog-anti-theft.jpg, blog-price.jpg | Blog articles | photo |
-| anti-theft.jpg, smart-lock.jpg, cylinder.jpg, emergency.jpg | Service cards | placeholder |
-| portrait.jpg | Smiling locksmith, tall 3:4 | placeholder |
-| blog-smart-lock.jpg | Blog article | placeholder |
+Every slot in `public/images/` now has a real photo:
+
+- Photos supplied by the owner: `locksmith-door.jpg`, `key-cutting.jpg`, `keys-wood.jpg`, `key-wall.webp`, `keys-yellow.jpg`
+- Unsplash License photos (free for commercial use), from images.unsplash.com:
+  - `us-smart-lock-phone.jpg`: `photo-1558002038-1055907df827`
+  - `us-vault-door.jpg`: `photo-1582139329536-e7284fece509`
+  - `us-house-dusk.jpg`: `photo-1494526585095-c41746248156`
+  - `us-craftsman.jpg`: `photo-1558618666-fcd25c85cd64`
+
+Which source feeds which slot, and how it is cropped, is listed in `scripts/optimize-images.mjs`.
+
+If you replace a photo and the old one still shows, delete `.next/cache/images` and restart the server.
 
 Placeholders come from `node scripts/placeholders.mjs`, which never overwrites existing files unless you pass `--force`.
