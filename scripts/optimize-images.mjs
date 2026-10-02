@@ -15,9 +15,10 @@ const out = path.join(root, "public", "images");
 /**
  * extract: region of the source to keep, as fractions of width/height.
  * aspect: output width / height. width: max output width.
+ * blur: optional gaussian sigma, baked into the file (hides low resolution).
  */
 const photos = [
-  { out: "hero", source: "locksmith-door.jpg", width: 1920, aspect: 16 / 10, flop: true },
+  { out: "hero", source: "locksmith-door.jpg", width: 1920, aspect: 16 / 10, flop: true, blur: 2.5, quality: 70 },
   { out: "door-opening", source: "locksmith-door.jpg", width: 1000, aspect: 4 / 5, extract: { left: 0.13, top: 0, width: 0.5, height: 1 } },
   { out: "key-copy", source: "key-cutting.jpg", width: 1000, aspect: 4 / 5 },
   { out: "process-bg", source: "keys-wood.jpg", width: 1920, aspect: 2 },
@@ -57,9 +58,10 @@ for (const p of photos) {
   if (p.flop) img = img.flop();
   // Never upscale beyond 1.5x the source: it only adds bytes, not detail.
   const width = Math.min(p.width, Math.round(Math.min(w, h * p.aspect) * 1.5));
+  img = img.resize({ width, height: Math.round(width / p.aspect), fit: "cover", position: p.position ?? "attention" });
+  if (p.blur) img = sharp(await img.toBuffer()).blur(p.blur);
   await img
-    .resize({ width, height: Math.round(width / p.aspect), fit: "cover", position: p.position ?? "attention" })
-    .jpeg({ quality: 78, mozjpeg: true, progressive: true })
+    .jpeg({ quality: p.quality ?? 78, mozjpeg: true, progressive: true })
     .toFile(path.join(out, `${p.out}.jpg`));
   console.log("wrote", p.out, width);
 }

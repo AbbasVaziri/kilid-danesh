@@ -19,7 +19,7 @@ export default function Hero() {
         className="-z-10 object-cover object-[60%_30%] lg:object-[0%_22%]"
       />
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-l from-ink via-ink/85 to-ink/25"
+        className="absolute inset-0 -z-10 bg-gradient-to-l from-ink via-ink/85 to-ink/45"
         aria-hidden
       />
       <div className="mx-auto flex min-h-[calc(100svh-68px)] max-w-6xl flex-col justify-center px-4 py-16 sm:min-h-[640px] lg:py-24">
