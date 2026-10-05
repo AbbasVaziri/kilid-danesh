@@ -21,6 +21,10 @@ npm run build && npm start   # production
 | Homepage FAQ | `src/lib/faqs.ts` |
 | SEO metadata and JSON-LD | `src/lib/seo.ts` |
 
+## Logo and icons
+
+The key mark lives in `src/components/ui/KeyMark.tsx` (used by the header and footer logo). `node scripts/make-icons.mjs` draws the same key into `src/app/icon.svg`, `src/app/favicon.ico`, `src/app/apple-icon.png` and the installable app icons in `public/icons/` (listed in `src/app/manifest.ts`). If you change the key shape, change it in both files and rerun the script.
+
 ## Photos
 
 Source photos live in `assets/photos/`. `node scripts/optimize-images.mjs` crops, resizes and compresses them into `public/images/` and regenerates the blur previews in `src/lib/image-blur.ts`. At runtime, `next/image` serves AVIF/WebP at the right width for each screen.
