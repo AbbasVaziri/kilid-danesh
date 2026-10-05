@@ -54,11 +54,13 @@ export function localBusinessSchema() {
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
+      streetAddress: site.streetAddress,
       addressLocality: site.city,
       addressRegion: site.region,
       addressCountry: site.country,
     },
     geo: { "@type": "GeoCoordinates", ...site.geo },
+    hasMap: site.map.url,
     areaServed: [
       { "@type": "City", name: "تهران" },
       ...locations.map((l) => ({ "@type": "Place", name: l.name })),

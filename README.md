@@ -14,7 +14,7 @@ npm run build && npm start   # production
 
 | What | File |
 | --- | --- |
-| Name, phone, domain, social links, hours | `src/lib/site.ts` |
+| Name, phone, address, Neshan map links, domain, social links, hours | `src/lib/site.ts` |
 | Services and service pages | `src/lib/services.ts` |
 | Service areas and location pages | `src/lib/locations.ts` |
 | Blog articles | `src/lib/blog.ts` |

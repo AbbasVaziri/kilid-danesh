@@ -86,9 +86,11 @@ export default function Footer() {
               <Clock className="size-4 text-brand" aria-hidden />
               {site.hours}
             </li>
-            <li className="flex items-center gap-2">
-              <MapPin className="size-4 text-brand" aria-hidden />
-              غرب و مرکز تهران
+            <li className="flex items-start gap-2">
+              <MapPin className="mt-1 size-4 shrink-0 text-brand" aria-hidden />
+              <a href={site.map.url} target="_blank" rel="noopener noreferrer" className="leading-6 hover:text-brand">
+                {site.address}
+              </a>
             </li>
           </ul>
         </div>
