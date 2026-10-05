@@ -31,8 +31,6 @@ const photos = [
   { out: "blog-price", source: "key-cutting.jpg", width: 1000, aspect: 4 / 3, extract: { left: 0, top: 0.4, width: 1, height: 0.6 } },
   { out: "cylinder", source: "key-cutting.jpg", width: 1000, aspect: 4 / 5, extract: { left: 0.25, top: 0.35, width: 0.6, height: 0.5 } },
   // Unsplash License photos (images.unsplash.com IDs listed in README)
-  { out: "smart-lock", source: "us-smart-lock-phone.jpg", width: 1000, aspect: 4 / 5 },
-  { out: "blog-smart-lock", source: "us-smart-lock-phone.jpg", width: 1000, aspect: 4 / 3 },
   { out: "anti-theft", source: "us-vault-door.jpg", width: 1000, aspect: 4 / 5 },
   { out: "emergency", source: "us-house-dusk.jpg", width: 1000, aspect: 4 / 5, extract: { left: 0.28, top: 0, width: 0.5, height: 1 } },
   { out: "portrait", source: "us-craftsman.jpg", width: 900, aspect: 3 / 4 },

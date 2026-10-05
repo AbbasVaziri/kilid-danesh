@@ -31,7 +31,6 @@ Every slot in `public/images/` now has a real photo:
 
 - Photos supplied by the owner: `locksmith-door.jpg`, `key-cutting.jpg`, `keys-wood.jpg`, `key-wall.webp`, `keys-yellow.jpg`
 - Unsplash License photos (free for commercial use), from images.unsplash.com:
-  - `us-smart-lock-phone.jpg`: `photo-1558002038-1055907df827`
   - `us-vault-door.jpg`: `photo-1582139329536-e7284fece509`
   - `us-house-dusk.jpg`: `photo-1494526585095-c41746248156`
   - `us-craftsman.jpg`: `photo-1558618666-fcd25c85cd64`

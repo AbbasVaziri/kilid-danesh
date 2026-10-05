@@ -34,8 +34,8 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mt-6 max-w-xl text-base leading-8 text-white/75 sm:text-lg">
-          کلیدسازی دانش ارائه‌دهنده خدمات فوری باز کردن قفل، تعمیر قفل، نصب قفل
-          دیجیتال و خدمات امنیتی در مناطق غرب و مرکز تهران.
+          کلیدسازی دانش ارائه‌دهنده خدمات فوری باز کردن قفل، تعمیر و تعویض قفل،
+          ساخت کلید و خدمات امنیتی در مناطق غرب و مرکز تهران.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <CallButton size="lg" />

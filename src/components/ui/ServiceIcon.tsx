@@ -1,6 +1,5 @@
 import {
   DoorOpen,
-  Fingerprint,
   KeyRound,
   LockKeyhole,
   ShieldCheck,
@@ -12,7 +11,6 @@ import type { IconName } from "@/lib/services";
 const icons = {
   door: DoorOpen,
   shield: ShieldCheck,
-  smart: Fingerprint,
   key: KeyRound,
   cylinder: LockKeyhole,
   siren: Siren,

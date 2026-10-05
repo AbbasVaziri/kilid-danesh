@@ -27,7 +27,7 @@ export default function LocationsPage() {
           <LocationCards items={locations} />
           <p className="mt-10 max-w-3xl leading-8 text-muted">
             اگر محله شما در این فهرست نیست، باز هم تماس بگیرید. در بیشتر محله‌های مجاور
-            این مناطق نیز خدمات کلیدسازی فوری، تعویض قفل و نصب قفل دیجیتال ارائه می‌دهیم.
+            این مناطق نیز خدمات کلیدسازی فوری، تعویض قفل و ساخت کلید ارائه می‌دهیم.
           </p>
         </div>
       </section>

@@ -15,7 +15,6 @@ const images = [
   ["hero", L.DoorOpen, 1920, 1080, 0.28],
   ["door-opening", L.DoorOpen, 1200, 900],
   ["anti-theft", L.ShieldCheck, 1200, 900],
-  ["smart-lock", L.Fingerprint, 1200, 900],
   ["key-copy", L.KeyRound, 1200, 900],
   ["cylinder", L.LockKeyhole, 1200, 900],
   ["emergency", L.Siren, 1200, 900],
@@ -27,7 +26,6 @@ const images = [
   ["location", L.MapPin, 1920, 1080, 0.28],
   ["blog-keys-inside", L.KeyRound, 1200, 900],
   ["blog-anti-theft", L.ShieldCheck, 1200, 900],
-  ["blog-smart-lock", L.Fingerprint, 1200, 900],
   ["blog-price", L.Receipt, 1200, 900],
 ];
 

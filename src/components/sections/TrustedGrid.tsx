@@ -16,7 +16,7 @@ const points = [
 const boxes = [
   { slug: "door-lock-opening", tag: "خدمات منزل" },
   { slug: "anti-theft-lock", tag: "امنیت درب" },
-  { slug: "smart-lock", tag: "قفل هوشمند" },
+  { slug: "emergency-locksmith", tag: "خدمات فوری" },
   { slug: "key-copy", tag: "کلید و مغزی" },
 ];
 
