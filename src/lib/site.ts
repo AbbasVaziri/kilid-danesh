@@ -2,6 +2,8 @@ export const site = {
   name: "کلیدسازی دانش",
   shortName: "کلید دانش",
   url: "https://kilid-danesh.ir",
+  /** sitemap lastModified for static pages; bump when page content changes */
+  updated: "2026-10-22",
   phone: "09195001831",
   phoneTel: "+989195001831",
   city: "تهران",
