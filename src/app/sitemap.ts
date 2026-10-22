@@ -5,9 +5,9 @@ import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entry = (path: string, priority: number, lastModified?: string) => ({
+  const entry = (path: string, priority: number, lastModified: string = site.updated) => ({
     url: new URL(path, site.url).toString(),
-    lastModified: lastModified ?? new Date(),
+    lastModified,
     priority,
   });
   return [

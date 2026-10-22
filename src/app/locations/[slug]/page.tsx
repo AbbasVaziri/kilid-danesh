@@ -5,6 +5,7 @@ import PageHero from "@/components/ui/PageHero";
 import FaqList from "@/components/ui/FaqList";
 import JsonLd from "@/components/ui/JsonLd";
 import CallButton from "@/components/ui/CallButton";
+import NeshanMap from "@/components/ui/NeshanMap";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import EmergencyCta from "@/components/sections/EmergencyCta";
 import { getLocation, locationPages } from "@/lib/locations";
@@ -44,7 +45,7 @@ export default async function LocationPage({ params }: PageProps<"/locations/[sl
     <>
       <JsonLd
         data={[
-          serviceSchema(`کلیدسازی ${l.name}`, l.metaDescription!, path),
+          serviceSchema(`کلیدسازی ${l.name}`, l.metaDescription!, path, [l.name, ...(l.nearby ?? [])]),
           faqSchema(l.faqs ?? []),
         ]}
       />
@@ -96,6 +97,11 @@ export default async function LocationPage({ params }: PageProps<"/locations/[sl
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section className="mt-12">
+              <h2 className="mb-6 text-2xl font-black">آدرس کلیدسازی دانش نزدیک {l.name}</h2>
+              <NeshanMap />
             </section>
 
             <section className="mt-12">

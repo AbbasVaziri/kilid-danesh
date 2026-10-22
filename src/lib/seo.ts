@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { locations } from "./locations";
-import type { Faq } from "./services";
+import { services, type Faq } from "./services";
 import { site } from "./site";
 
 type MetaInput = {
@@ -47,11 +47,30 @@ export function localBusinessSchema() {
     "@type": ["Locksmith", "LocalBusiness"],
     "@id": businessId,
     name: site.name,
+    alternateName: site.shortName,
     description: site.description,
     url: site.url,
     telephone: site.phoneTel,
-    image: abs("/images/hero.jpg"),
-    priceRange: "$$",
+    logo: abs("/icons/icon-512.png"),
+    image: [abs("/images/hero.jpg"), abs("/images/portrait.jpg"), abs("/images/trust.jpg")],
+    knowsLanguage: "fa",
+    currenciesAccepted: "IRR",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: site.phoneTel,
+      contactType: "customer service",
+      availableLanguage: "fa",
+      areaServed: "IR",
+      hoursAvailable: "Mo-Su 00:00-23:59",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "خدمات کلیدسازی",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.name, url: abs(`/services/${s.slug}`) },
+      })),
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: site.streetAddress,
@@ -83,7 +102,22 @@ export function localBusinessSchema() {
   };
 }
 
-export function serviceSchema(name: string, description: string, path: string) {
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: site.name,
+    alternateName: site.shortName,
+    url: site.url,
+    inLanguage: "fa-IR",
+    publisher: { "@id": businessId },
+  };
+}
+
+/** `areas` narrows areaServed to specific neighbourhoods (e.g. on a location page). */
+export function serviceSchema(name: string, description: string, path: string, areas?: string[]) {
+  const names = areas ?? locations.map((l) => l.name);
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -92,7 +126,11 @@ export function serviceSchema(name: string, description: string, path: string) {
     description,
     url: abs(path),
     provider: { "@id": businessId },
-    areaServed: locations.map((l) => ({ "@type": "Place", name: l.name })),
+    areaServed: names.map((n) => ({
+      "@type": "Place",
+      name: n,
+      containedInPlace: { "@type": "City", name: site.city },
+    })),
   };
 }
 

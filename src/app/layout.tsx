@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCallBar from "@/components/layout/MobileCallBar";
 import JsonLd from "@/components/ui/JsonLd";
-import { localBusinessSchema } from "@/lib/seo";
+import { localBusinessSchema, websiteSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 const modam = localFont({
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
   applicationName: site.name,
   formatDetection: { telephone: true },
   robots: { index: true, follow: true },
+  // Search Console / Bing Webmaster verification codes, set as env vars at build time.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
 };
 
 export const viewport: Viewport = {
@@ -41,7 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fa" dir="rtl" className={`${modam.variable} antialiased`}>
       <body className="flex min-h-screen flex-col pb-[72px] lg:pb-0">
-        <JsonLd data={localBusinessSchema()} />
+        <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
