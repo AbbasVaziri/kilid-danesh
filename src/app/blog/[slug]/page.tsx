@@ -87,7 +87,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
             {service && (
               <>
                 {" "}
-                بیشتر بخوانید:{" "}
+                خدمت مرتبط:{" "}
                 <Link href={`/services/${service.slug}`} className="underline underline-offset-4">
                   {service.name}
                 </Link>

@@ -1,15 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/lib/site";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      trigger.current?.focus();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <>
       <button
+        ref={trigger}
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="grid size-11 place-items-center rounded-md border border-white/15 text-white lg:hidden"

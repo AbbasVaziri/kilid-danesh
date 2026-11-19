@@ -15,7 +15,7 @@ const sizes = {
 };
 
 const variants = {
-  brand: "bg-brand text-ink hover:bg-brand-dark shadow-[0_10px_30px_-10px_rgba(245,196,0,0.6)]",
+  brand: "bg-brand text-ink hover:brightness-90",
   dark: "bg-ink text-white hover:bg-graphite",
 };
 

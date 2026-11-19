@@ -51,7 +51,7 @@ export default function TrustedGrid() {
                   href={`/services/${slug}`}
                   className="mx-auto mt-6 inline-flex h-10 items-center bg-brand px-5 text-xs font-extrabold text-ink transition-colors hover:bg-ink hover:text-brand"
                 >
-                  بیشتر بخوانید
+                  مشاهده {s.name}
                 </Link>
               </li>
             );

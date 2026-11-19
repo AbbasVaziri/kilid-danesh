@@ -21,12 +21,7 @@ export default function SectionHeading({
   const parts = highlight ? title.split(highlight) : [title];
   return (
     <div className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}>
-      <p
-        className={`mb-4 inline-flex items-center gap-2 text-sm font-bold ${
-          dark ? "text-brand" : "text-muted"
-        }`}
-      >
-        <span className="size-2.5 rounded-full bg-brand ring-4 ring-brand/25" aria-hidden />
+      <p className={`mb-4 text-sm font-bold ${dark ? "text-brand" : "text-muted"}`}>
         {eyebrow}
       </p>
       <Tag
@@ -35,7 +30,7 @@ export default function SectionHeading({
         }`}
       >
         {parts[0]}
-        {highlight && <span className="text-brand">{highlight}</span>}
+        {highlight && <span className={dark ? "text-brand" : "text-brand-dark"}>{highlight}</span>}
         {parts[1]}
       </Tag>
       {description && (
