@@ -58,7 +58,7 @@ export default function HomePage() {
               highlight="کلیدسازی دانش"
               description="از باز کردن قفل در مواقع اضطراری تا تعویض قفل و ساخت کلید؛ هر کاری که برای امنیت درب خانه شما لازم است."
             />
-            <MoreLink href="/services">همه خدمات</MoreLink>
+            <MoreLink href="/services">مشاهده همه خدمات</MoreLink>
           </div>
           <div className="mt-12">
             <ServiceCards cards={serviceCards} />
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading eyebrow="مجله کلیدسازی" title="مقالات و راهنماها" highlight="راهنماها" />
-            <MoreLink href="/blog">همه مقالات</MoreLink>
+            <MoreLink href="/blog">مشاهده همه مقالات</MoreLink>
           </div>
           <div className="mt-12">
             <BlogCards posts={posts.slice(0, 3)} />

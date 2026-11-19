@@ -3,7 +3,7 @@ import CallButton from "@/components/ui/CallButton";
 
 export default function EmergencyCta() {
   return (
-    <section className="relative overflow-hidden bg-brand py-16 sm:py-20" aria-labelledby="emergency-title">
+    <section className="relative overflow-hidden bg-paper py-16 sm:py-20" aria-labelledby="emergency-title">
       <Siren
         className="pointer-events-none absolute -start-10 -top-10 size-64 text-ink/[0.06]"
         aria-hidden

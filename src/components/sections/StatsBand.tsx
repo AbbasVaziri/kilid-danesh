@@ -1,7 +1,11 @@
+import { locations } from "@/lib/locations";
+import { serviceCards } from "@/lib/services";
+import { toFa } from "@/lib/site";
+
 const stats = [
   { value: "۲۴/۷", label: "پاسخگویی شبانه‌روزی" },
-  { value: "۷", label: "منطقه تحت پوشش" },
-  { value: "۵", label: "خدمت تخصصی" },
+  { value: toFa(locations.length), label: "منطقه تحت پوشش" },
+  { value: toFa(serviceCards.length), label: "خدمت تخصصی" },
 ];
 
 export default function StatsBand() {

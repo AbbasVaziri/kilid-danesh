@@ -27,11 +27,7 @@ export default function PageHero({ title, description, image, crumbs, eyebrow }:
       <div className="absolute inset-0 -z-10 bg-gradient-to-l from-ink via-ink/85 to-ink/40" />
       <div className="mx-auto max-w-6xl px-4 pt-10 pb-14 sm:pt-14 sm:pb-20">
         <Breadcrumbs items={crumbs} />
-        {eyebrow && (
-          <p className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-3 py-1 text-xs font-bold text-ink">
-            {eyebrow}
-          </p>
-        )}
+        {eyebrow && <p className="mt-8 text-sm font-bold text-brand">{eyebrow}</p>}
         <h1 className="mt-4 max-w-3xl text-3xl leading-tight font-black text-white sm:text-5xl">
           {title}
         </h1>

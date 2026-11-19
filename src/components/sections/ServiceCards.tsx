@@ -20,7 +20,7 @@ export default function ServiceCards({ cards }: { cards: ServiceCard[] }) {
               fill
               {...blurProps(c.image)}
               sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-transparent"

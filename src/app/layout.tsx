@@ -48,9 +48,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fa" dir="rtl" className={`${modam.variable} antialiased`}>
       <body className="flex min-h-screen flex-col pb-[72px] lg:pb-0">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:font-bold focus:text-ink"
+        >
+          پرش به محتوای اصلی
+        </a>
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">{children}</main>
         <Footer />
         <MobileCallBar />
       </body>

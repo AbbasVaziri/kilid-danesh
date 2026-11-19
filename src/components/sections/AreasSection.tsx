@@ -8,7 +8,7 @@ export default function AreasSection() {
     <section className="py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[0.8fr_1.4fr_0.7fr]">
         <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden bg-graphite">
-          <Image src="/images/portrait.jpg" alt="کلیدساز کلیدسازی دانش" fill sizes="(min-width: 1024px) 300px, 90vw" className="object-cover" />
+          <Image src="/images/portrait.jpg" alt="تصویری نمادین از یک صنعتگر" fill sizes="(min-width: 1024px) 300px, 90vw" className="object-cover" />
         </div>
         <div>
           <SectionHeading eyebrow="کلیدساز محلی" title="منزل، مغازه، دفتر کار؛ هر جا باشید، می‌رسیم" highlight="هر جا باشید" />
